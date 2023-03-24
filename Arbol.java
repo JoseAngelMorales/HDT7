@@ -1,7 +1,5 @@
 package HDT7;
 
-import java.util.Stack;
-
 public class Arbol {
 
     ArbolNodo root;
@@ -42,23 +40,19 @@ public class Arbol {
         return traduccion;
     }
 
-    public ArbolNodo buscarPrimerNodo(ArbolNodo raiz) {
-        ArbolNodo primerNodo = null;
-        Stack<ArbolNodo> pila = new Stack<>();
-        pila.push(raiz);
-    
-        while (!pila.empty()) {
-            ArbolNodo actual = pila.pop();
-            if (primerNodo == null) {
-                primerNodo = actual;
-            }
-            if (actual.left != null) {
-                pila.push(actual.left);
-            }
-            if (actual.right != null) {
-                pila.push(actual.right);
-            }
-        }
-        return primerNodo;
+    private String buscarNodo(ArbolNodo current, String palabra) {
+        if (current == null) {
+            return "";
+        } 
+        if (palabra.equalsIgnoreCase(current.palabra.getLlave())) {
+            return current.palabra.getValor();
+        } 
+        return palabra.compareToIgnoreCase(current.palabra.getLlave()) < 0
+          ? buscarNodo(current.left, palabra)
+          : buscarNodo(current.right, palabra);
+    }
+
+    public String empezarb(String palabra) {
+        return buscarNodo(root, palabra);
     }
 }
