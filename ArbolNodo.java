@@ -1,6 +1,7 @@
 package HDT7;
 
 public class ArbolNodo {
+    
     Association<String, String> palabra;
     ArbolNodo left, right;
 
@@ -9,3 +10,5 @@ public class ArbolNodo {
         left = right = null;
     }
 }
+
+//Codigo inspirado de: https://www.baeldung.com/java-binary-tree

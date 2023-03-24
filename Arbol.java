@@ -18,6 +18,7 @@ public class Arbol {
         return current;
     }
 
+    //Empieza la recursividad para meter un elemento en el arbol
     public void empezar(Association<String, String> palabra){
         root = insertar(root, palabra);
     }
@@ -52,7 +53,10 @@ public class Arbol {
           : buscarNodo(current.right, palabra);
     }
 
+    //Empieza la recursividad para buscar un elemento en el arbol
     public String empezarb(String palabra) {
         return buscarNodo(root, palabra);
     }
 }
+
+//Codigo inspirado de: https://www.baeldung.com/java-binary-tree
