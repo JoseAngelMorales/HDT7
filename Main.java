@@ -78,7 +78,7 @@ public class Main {
                                 case 1:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -93,7 +93,7 @@ public class Main {
                                         i = oracion.indexOf(" ");
                                         String p = oracion.substring(0, i);
                                         //Si la palabra no esta en el arbol devuelve "" y agrega la palabra entre ** a la traduccion.
-                                        if(arbolei.empezarb(p) == ""){
+                                        if(arbolie.empezarb(p) == ""){
                                             traduccion = traduccion + "*" + p + "* ";
                                         }
                                         //Si la palabra si esta agrega el valor de la llave a la traduccion
@@ -115,7 +115,7 @@ public class Main {
                                 case 2:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -168,7 +168,7 @@ public class Main {
                                 case 1:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -205,7 +205,7 @@ public class Main {
                                 case 2:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -258,7 +258,7 @@ public class Main {
                                 case 1:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -295,7 +295,7 @@ public class Main {
                                 case 2:{
                                     System.out.println("\nIngrese la oracion a traducir: ");
                                     String oracion = teclado.nextLine();
-                                    String traduccion = "";
+                                    String traduccion = "Traduccion: ";
                                     int i = oracion.lastIndexOf(".");
                                     //Quitar el punto al final de la oracion si lo tiene
                                     if(i+1 == oracion.length()){
@@ -338,7 +338,55 @@ public class Main {
                         break;
                     }
                     case 4:{
-    
+                        int esp = 0, ing = 0, fra = 0;
+                        System.out.println("\nIngrese la oracion a traducir: ");
+                        String idioma = "El idioma principal de la oracion es: ";
+                        String oracion = teclado.nextLine();
+                        int i = oracion.lastIndexOf(".");
+                        if(i+1 == oracion.length()){
+                            oracion = oracion.substring(0,i);
+                        }
+                        //Agregarle un espacio al final de la oracion para que funcione con el while
+                        if(oracion.lastIndexOf(" ") != oracion.length()){
+                            oracion = oracion + " ";
+                        }
+                        while(oracion != ""){
+                            i = oracion.indexOf(" ");
+                            String p = oracion.substring(0, i);
+                            if(arbolef.empezarb(p)!=""){
+                                esp++;
+                            }
+                            if(arbolie.empezarb(p)!=""){
+                                ing++;
+                            }
+                            if(arbolfi.empezarb(p)!=""){
+                                fra++;
+                            }
+                            oracion = oracion.replaceFirst(oracion.substring(0, i+1), "");
+                        }
+                        if(esp > ing && esp > fra){
+                            idioma = idioma + "Espanol";
+                        }
+                        if(ing > esp && ing > fra){
+                            idioma = idioma + "Ingles";
+                        }
+                        if(fra > ing && fra > esp){
+                            idioma = idioma + "Frances";
+                        }
+                        if(ing == esp && ing > fra){
+                            idioma = idioma + "Ingles y Espanol";
+                        }
+                        if(ing == fra && ing > esp){
+                            idioma = idioma + "Ingles y Frances";
+                        }
+                        if(esp == fra && esp > ing){
+                            idioma = idioma + "Espanol y Frances";
+                        }
+                        if(esp == fra && esp == ing){
+                            idioma = idioma + "Espanol, Frances e Ingles";
+                        }
+                        System.out.println(idioma);
+                        opcion = 0;
                         break;
                     }
                 }
