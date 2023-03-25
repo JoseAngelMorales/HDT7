@@ -24,24 +24,6 @@ public class Arbol {
         root = insertar(root, palabra);
     }
 
-    public String buscar(ArbolNodo current, Association<String, String> palabra){
-        String traduccion = "";
-        while(current != null){
-            if(current.palabra.getLlave().equalsIgnoreCase(palabra.getLlave()) == true){
-                traduccion = current.palabra.getValor();
-            }
-            if(current.palabra.getLlave().equalsIgnoreCase(palabra.getLlave()) == false){
-                if(palabra.getLlave().compareToIgnoreCase(current.palabra.getLlave()) < 0){
-                    current = current.left;
-                }
-                if(palabra.getLlave().compareToIgnoreCase(current.palabra.getLlave()) > 0){
-                    current = current.right;
-                }
-            }
-        }   
-        return traduccion;
-    }
-
     //Metodo recursivo para comparar el valor de una key en el arbol con la palabra dada y que devuelva su valor asociado
     private String buscarNodo(ArbolNodo current, String palabra) {
         if (current == null) {
