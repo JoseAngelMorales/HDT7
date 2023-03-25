@@ -4,6 +4,7 @@ public class Arbol {
 
     ArbolNodo root;
 
+    //Metodo recursivo que busca un espacio libre en el arbol binario para ingresar el objeto Association
     public ArbolNodo insertar(ArbolNodo current, Association<String, String> palabra){
         if(current == null){
             return new ArbolNodo(palabra);
@@ -41,6 +42,7 @@ public class Arbol {
         return traduccion;
     }
 
+    //Metodo recursivo para comparar el valor de una key en el arbol con la palabra dada y que devuelva su valor asociado
     private String buscarNodo(ArbolNodo current, String palabra) {
         if (current == null) {
             return "";
